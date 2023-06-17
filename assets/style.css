@@ -3,7 +3,7 @@
 	--primary-color: #3396C0;
 	--secondary-color: #CD006B;
 	--third-color: #EEE325;
-}
+} 
 
 /* Reset CSS */
 * {
@@ -127,10 +127,14 @@ header {
 	position: absolute;
 }
 #banner .arrow_left {
-	left: 10px;
+	right: 650px;
+	bottom: 160px;
+	position: absolute;
 }
 #banner .arrow_right {
-	right: 10px;
+	left: 650px;
+	bottom: 160px;
+	position: absolute;
 }
 /* Gestion des points du carrousel */
 .dots {
