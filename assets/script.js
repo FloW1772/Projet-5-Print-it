@@ -42,3 +42,22 @@ arrowRight.addEventListener('click',function(event){
 	}
 	image.src = "./assets/images/slideshow/" + slides[currentSlide].image
 })
+
+const dotsContainer = document.getElementById('slider-dots');
+
+slides.forEach((_, index) => {
+  const dot = document.createElement('li');
+  dot.classList.add('dot');
+  if (index === 0) {
+    dot.classList.add('dot_selected');
+  }
+  dot.addEventListener('click', () => {
+    goToSlide(index);
+  });
+  dotsContainer.appendChild(dot);
+});
+
+function goToSlide(index) {
+  // Code pour afficher la diapositive correspondante
+  // et mettre à jour la classe dot_selected du bullet point
+}

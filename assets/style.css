@@ -39,6 +39,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -127,17 +128,17 @@ header {
 	position: absolute;
 }
 #banner .arrow_left {
-	right: 650px;
+	right: 1250px;
 	bottom: 160px;
 	position: absolute;
 }
 #banner .arrow_right {
-	left: 650px;
+	left: 1250px;
 	bottom: 160px;
 	position: absolute;
 }
 /* Gestion des points du carrousel */
-.dots {
+.slider-dots {
 	position: absolute;
 	bottom: 40px;
 	display: flex;
@@ -146,7 +147,7 @@ header {
 	margin-inline: 5px;
 	width: 13px;
 	height: 13px;
-	background-color: #ffffff00;
+	background-color: transparent;
 	border: 3px solid #fff;
 	border-radius: 100%;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
