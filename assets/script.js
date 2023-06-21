@@ -61,3 +61,17 @@ function goToSlide(index) {
   // Code pour afficher la diapositive correspondante
   // et mettre à jour la classe dot_selected du bullet point
 }
+function goToSlide(index) {
+	currentSlide = index;
+	image.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+  
+	const dots = dotsContainer.querySelectorAll('.dot');
+	dots.forEach((dot, dotIndex) => {
+	  if (dotIndex === index) {
+		dot.classList.add('dot_selected');
+	  } else {
+		dot.classList.remove('dot_selected');
+	  }
+	});
+  }
+  

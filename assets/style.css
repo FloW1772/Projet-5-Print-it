@@ -139,10 +139,11 @@ header {
 }
 /* Gestion des points du carrousel */
 .slider-dots {
-	position: absolute;
-	bottom: 40px;
-	display: flex;
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr;
 }
+
 .dot {
 	margin-inline: 5px;
 	width: 13px;
@@ -150,11 +151,19 @@ header {
 	background-color: transparent;
 	border: 3px solid #fff;
 	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	position: relative;
+	bottom: -80px;
+	display: grid;
+	flex-direction: row;
+	margin-bottom: 5px ;
+	grid-template-columns: 1fr;
 }
+
 .dot_selected {
 	background-color: #fff;
 }
+
 /* Fin du code CSS pour le carousel */
 #banner p {
 	font-family: 'Roboto Slab', sans-serif;
