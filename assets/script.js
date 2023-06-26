@@ -22,6 +22,7 @@ console.log(arrowLeft)
 let currentSlide = 0
 let image = document.querySelector('.banner-img')
 console.log(image)
+let texte = document.querySelector('.tagline')
 
 arrowLeft.addEventListener('click',function(event){
 	currentSlide--
@@ -29,6 +30,7 @@ arrowLeft.addEventListener('click',function(event){
 		currentSlide = slides.length -1
 	}
 	image.src = "./assets/images/slideshow/" + slides[currentSlide].image
+	texte.innerHTML = slides[currentSlide].tagLine 
 })
 
 let arrowRight = document.querySelector(".arrow_right")
@@ -41,12 +43,13 @@ arrowRight.addEventListener('click',function(event){
 		currentSlide = 0
 	}
 	image.src = "./assets/images/slideshow/" + slides[currentSlide].image
+	texte.innerHTML = slides[currentSlide].tagLine
 })
 
-const dotsContainer = document.getElementById('slider-dots');
+const dotsContainer = document.getElementsByClassName('dots')[0];
 
 slides.forEach((_, index) => {
-  const dot = document.createElement('li');
+  const dot = document.createElement('div');
   dot.classList.add('dot');
   if (index === 0) {
     dot.classList.add('dot_selected');
@@ -57,10 +60,6 @@ slides.forEach((_, index) => {
   dotsContainer.appendChild(dot);
 });
 
-function goToSlide(index) {
-  // Code pour afficher la diapositive correspondante
-  // et mettre à jour la classe dot_selected du bullet point
-}
 function goToSlide(index) {
 	currentSlide = index;
 	image.src = "./assets/images/slideshow/" + slides[currentSlide].image;

@@ -54,9 +54,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body {
+/* body {
 
-}
+} */
 section {
 	margin-block: 6em;
 }
@@ -138,10 +138,9 @@ header {
 	position: absolute;
 }
 /* Gestion des points du carrousel */
-.slider-dots {
+.dots {
 	position: relative;
-	display: grid;
-	grid-template-columns: 1fr;
+	display: flex;
 }
 
 .dot {
