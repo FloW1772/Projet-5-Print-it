@@ -30,7 +30,8 @@ arrowLeft.addEventListener('click',function(event){
 		currentSlide = slides.length -1
 	}
 	image.src = "./assets/images/slideshow/" + slides[currentSlide].image
-	texte.innerHTML = slides[currentSlide].tagLine 
+	texte.innerHTML = slides[currentSlide].tagLine
+	updateDots()
 })
 
 let arrowRight = document.querySelector(".arrow_right")
@@ -44,6 +45,8 @@ arrowRight.addEventListener('click',function(event){
 	}
 	image.src = "./assets/images/slideshow/" + slides[currentSlide].image
 	texte.innerHTML = slides[currentSlide].tagLine
+	updateDots()
+	
 })
 
 const dotsContainer = document.getElementsByClassName('dots')[0];
@@ -59,18 +62,78 @@ slides.forEach((_, index) => {
   });
   dotsContainer.appendChild(dot);
 });
+let valeursDots = ['', '', '', ''];
 
 function goToSlide(index) {
-	currentSlide = index;
-	image.src = "./assets/images/slideshow/" + slides[currentSlide].image;
-  
-	const dots = dotsContainer.querySelectorAll('.dot');
-	dots.forEach((dot, dotIndex) => {
-	  if (dotIndex === index) {
-		dot.classList.add('dot_selected');
-	  } else {
-		dot.classList.remove('dot_selected');
-	  }
-	});
-  }
-  
+  currentSlide = index;
+  image.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+  texte.innerHTML = slides[currentSlide].tagLine;
+
+  const dots = dotsContainer.querySelectorAll('.dot');
+  dots.forEach((dot, dotIndex) => {
+    if (dotIndex === index) {
+      dot.classList.add('dot_selected');
+      valeursDots[dotIndex] = dotIndex + 1;
+    } else {
+      dot.classList.remove('dot_selected');
+      valeursDots[dotIndex] = '';
+    }
+  });
+
+  console.log('Valeurs des dots :', valeursDots);
+
+  updateDots();
+}
+
+function updateDots() {
+  const dots = dotsContainer.querySelectorAll('.dot');
+  dots.forEach((dot, dotIndex) => {
+    const valeurDot = valeursDots[dotIndex];
+
+    // Mettez ici le code pour mettre à jour le style ou l'apparence des dots en fonction de la valeur de chaque dot
+
+    // Exemple : Si la valeur est non vide, ajouter une classe spécifique au dot pour le mettre en surbrillance
+    if (valeurDot !== '') {
+      dot.classList.add('dot_highlight');
+    } else {
+      dot.classList.remove('dot_highlight');
+    }
+
+    // Exemple : Si la valeur est '1', afficher un texte ou une icône dans le dot
+    if (valeurDot === '1') {
+      dot.textContent = '1';
+    } else {
+      dot.textContent = '';
+    }
+  });
+}
+
+// Écouteur d'événement pour la flèche de droite
+document.getElementById('flecheDroite').addEventListener('click', function() {
+  // Augmenter les valeurs de valeursDots de 1
+  valeursDots = valeursDots.map(val => {
+    if (val !== '') {
+      return String(parseInt(val) + 1);
+    }
+    return '';
+  });
+
+  console.log('Valeurs des dots :', valeursDots);
+
+  updateDots();
+});
+
+// Écouteur d'événement pour la flèche de gauche
+document.getElementById('flecheGauche').addEventListener('click', function() {
+  // Réduire les valeurs de valeursDots de 1
+  valeursDots = valeursDots.map(val => {
+    if (val !== '') {
+      return String(parseInt(val) - 1);
+    }
+    return '';
+  });
+
+  console.log('Valeurs des dots :', valeursDots);
+
+  updateDots();
+});
