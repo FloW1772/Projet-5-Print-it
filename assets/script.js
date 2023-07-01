@@ -27,53 +27,53 @@ let valeursDots = [];
 
 // Initialisation des valeurs des dots à 1 pour chaque élément
 window.addEventListener('DOMContentLoaded', function() {
-  valeursDots = Array(slides.length).fill(1);
-  updateDots();
-});
+  valeursDots = Array(slides.length).fill(1)
+  updateDots()
+})
 
 // Gestion du clic sur la flèche de gauche
 arrowLeft.addEventListener('click', function(event) {
-  currentSlide--;
+  currentSlide--
   if (currentSlide < 0) {
-      currentSlide = slides.length - 1;
+      currentSlide = slides.length - 1
   }
-  updateSlide();
-});
+  updateSlide()
+})
 
 // Gestion du clic sur la flèche de droite
 arrowRight.addEventListener('click', function(event) {
-  currentSlide++;
+  currentSlide++
   if (currentSlide >= slides.length) {
-      currentSlide = 0;
+      currentSlide = 0
   }
-  updateSlide();
-});
+  updateSlide()
+})
 
 // Mise à jour de l'image et du texte en fonction de la slide actuelle
 function updateSlide() {
   image.src = "./assets/images/slideshow/" + slides[currentSlide].image;
-  texte.innerHTML = slides[currentSlide].tagLine;
-  updateDots();
+  texte.innerHTML = slides[currentSlide].tagLine
+  updateDots()
 }
 
 // Fonction de mise à jour des dots
 function updateDots() {
-  dotsContainer.innerHTML = ''; // Supprimer les dots existants
+  dotsContainer.innerHTML = ''// Supprimer les dots existants
 
   slides.forEach(function(_, index) {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
+      const dot = document.createElement('div')
+      dot.classList.add('dot')
       if (index === currentSlide) {
-          dot.classList.add('dot_selected');
+          dot.classList.add('dot_selected')
       }
       dot.addEventListener('click', function() {
-          currentSlide = index;
-          updateSlide();
+          currentSlide = index
+          updateSlide()
       });
-      dotsContainer.appendChild(dot);
+      dotsContainer.appendChild(dot)
   });
 }
 
 // Appel initial pour afficher les dots et la première slide
-updateDots();
-updateSlide();
+updateDots()
+updateSlide()
